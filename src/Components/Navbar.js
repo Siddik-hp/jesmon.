@@ -1,6 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const Navbar = () => {
+  const history = useHistory();
   // Nav Toggle for mobile devices
   function navToggle() {
     const icon = document.querySelector(".fa-bars");
@@ -22,8 +25,60 @@ const Navbar = () => {
 
   window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".container-fluid");
-    navbar.classList.toggle("sticky", window.scrollY > 100);
+    navbar.classList.toggle("sticky", window.scrollY > 50);
   });
+
+  const [auth, setAuth] = useState();
+
+  const navPage = async () => {
+    try {
+      const res = await fetch("/getdata", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setAuth(data.email);
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+      return setAuth(data.email);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    navPage();
+  }, []);
+
+  const logout = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/logout", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        credentials: "include",
+      });
+      if (res.status === 200) {
+        toast.success(<b>Logout Successful</b>, {
+          autoClose: 500,
+          theme: "colored",
+          position: "bottom-center",
+        });
+        setTimeout(() => {
+          history.push("/login");
+          window.location.reload();
+        }, 600);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -45,24 +100,41 @@ const Navbar = () => {
               <a href="/#Services">Services</a>
             </li>
             <li>
-              <a href="/#Contact">Contact</a>
+              <Link to="/Contact">Contact</Link>
             </li>
             <li>
               <a href="/#Team">Team</a>
             </li>
+            {auth ? (
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            ) : (
+              <></>
+            )}
 
             <div className="btn_box">
-              <button>
-                <Link to="/login">Login</Link>
-              </button>
-              <button>
-                <Link to="/register">Sign up</Link>
-              </button>
+              {auth ? (
+                <button>
+                  <Link to="/logout" onClick={logout}>
+                    Logout
+                  </Link>
+                </button>
+              ) : (
+                <>
+                  <button>
+                    <Link to="/login">Login</Link>
+                  </button>
+                  <button>
+                    <Link to="/register">Sign up</Link>
+                  </button>
+                </>
+              )}
             </div>
           </ul>
           <div className="icon">
-            <i class="fas fa-bars" onClick={navToggle}></i>
-            <i class="fas fa-times" onClick={navToggleHide}></i>
+            <i className="fas fa-bars" onClick={navToggle}></i>
+            <i className="fas fa-times" onClick={navToggleHide}></i>
           </div>
         </div>
       </section>

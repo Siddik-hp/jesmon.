@@ -9,7 +9,6 @@
 body {
   font-family: "Outfit", sans-serif !important;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 button:focus {
@@ -44,7 +43,8 @@ li {
 
 #HomePage,
 #Login,
-#register {
+#register,
+#dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,10 +53,16 @@ li {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#dashboard h1 {
+  margin-top: 5rem;
 }
 
 #Navbar .container-fluid {
   width: 100%;
+  overflow-x: visible;
   height: 4rem;
   position: fixed;
   top: 0;
@@ -142,6 +148,10 @@ li {
 
 #Navbar .sticky .btn_box button {
   background: #000 !important;
+}
+
+#Navbar .sticky i {
+  color: #f7fefc !important;
 }
 
 #HomePage {
@@ -480,50 +490,38 @@ li {
 }
 
 #Inspired .container-fluid .container .row .col-md-4:nth-child(1) {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
 }
 
 #Inspired .container-fluid .container .row .col-md-4:nth-child(1):hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-
-#Inspired .container-fluid .container .row .col-md-4:nth-child(1):hover button {
-  -webkit-transition: 0.5s linear;
-  transition: 0.5s linear;
-  padding: 1rem 0;
-}
-
-#Inspired .container-fluid .container .row .col-md-4:nth-child(2) {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: 0.3s linear;
-  transition: 0.3s linear;
-}
-
-#Inspired .container-fluid .container .row .col-md-4:nth-child(3) {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
 }
 
-#Inspired .container-fluid .container .row .col-md-4:nth-child(3):hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+#Inspired .container-fluid .container .row .col-md-4:nth-child(2) {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
 }
 
-#Inspired .container-fluid .container .row .col-md-4:nth-child(3):hover button {
-  -webkit-transition: 0.5s linear;
-  transition: 0.5s linear;
-  padding: 1rem 0;
+#Inspired .container-fluid .container .row .col-md-4:nth-child(3) {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+#Inspired .container-fluid .container .row .col-md-4:nth-child(3):hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 #Inspired .container-fluid .container .row .card:hover {
@@ -846,7 +844,7 @@ li {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 50%;
+    width: 60%;
     height: 100vh;
     line-height: 2.5rem;
     text-align: center;
@@ -900,6 +898,7 @@ li {
   }
   #Navbar .container-fluid .icon i {
     font-size: 2.5rem;
+    color: #20ac68;
   }
   #Navbar .container-fluid .icon .fa-times {
     display: none;
@@ -908,7 +907,7 @@ li {
     font-size: 2.6rem;
   }
   #Services .container-fluid .container .row .col-md-4 {
-    width: 90% !important;
+    width: 95% !important;
     margin: 0 auto;
     margin-bottom: 1rem;
   }
@@ -970,7 +969,7 @@ li {
     font-weight: bold;
   }
   #Team .container-fluid .container .row .col-md-4 .card p {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #49dcb1;
     text-transform: uppercase;
   }

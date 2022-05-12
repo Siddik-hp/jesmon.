@@ -40,9 +40,9 @@ const Team = () => {
         <div className="container-fluid">
           <div className="container pt-4">
             <Headling
-              h5="/Meet our teem"
+              h5="/Meet our team"
               h1="Minds Behind the Brain"
-              p="Alone we can do so little; together we can do so much."
+              p="Alone we can do so little, together we can do so much."
             />
             <div className="row">
               {api.map((e) => {
@@ -53,11 +53,11 @@ const Team = () => {
                     data-aos="flip-left"
                     data-aos-duration="2000"
                   >
-                    <div class="card">
-                      <img src={e.image} class="card-img-top" alt="Not Found" />
-                      <div class="card-body">
-                        <h5 class="card-title">{e.name}</h5>
-                        <p class="card-text">{e.tag}</p>
+                    <div className="card">
+                      <img src={e.image} className="card-img-top" alt="Not Found" />
+                      <div className="card-body">
+                        <h5 className="card-title">{e.name}</h5>
+                        <p className="card-text">{e.tag}</p>
                       </div>
                     </div>
                   </div>

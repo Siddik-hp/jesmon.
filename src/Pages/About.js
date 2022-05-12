@@ -18,7 +18,7 @@ const About = () => {
                 </p>
                 <div className="row">
                   <div className="col-md-6 d-flex justify-content-center">
-                    <i class="fas fa-handshake"></i>
+                    <i className="fas fa-handshake"></i>
                     <div>
                       <h2>Quality</h2>
                       <p>
@@ -28,7 +28,7 @@ const About = () => {
                     </div>
                   </div>
                   <div className="col-md-6 d-flex justify-content-center">
-                    <i class="far fa-heart"></i>
+                    <i className="far fa-heart"></i>
                     <div>
                       <h2>Innovation</h2>
                       <p>
@@ -41,7 +41,7 @@ const About = () => {
               </div>
               <div
                 className="col-md-5 mx-auto"
-                data-aos="fade-left"
+                data-aos="zoom-in"
                 data-aos-duration="2000"
               >
                 <figure>

@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <section id="HomePage">
         <div className="container-fluid">
-          <div class="box" data-aos="zoom-in"  data-aos-duration="3000">
+          <div className="box" data-aos="zoom-in"  data-aos-duration="3000">
             <h5>Design is intertalizence made visible</h5>
             <p>Desingers are meant to be loved, not to be understood</p>
           </div>

@@ -23,7 +23,7 @@ const Services = () => {
                   <div
                     className="col-md-4 text-center"
                     key={e.id}
-                    data-aos="fade-left"
+                    data-aos="zoom-in"
                     data-aos-duration="2000"
                   >
                     <i className={e.icon}></i>
@@ -43,7 +43,7 @@ const Services = () => {
                   src="image/about2.jpg"
                   alt=" Not Found"
                   className="img-fluid "
-                  data-aos="fade-right"
+                  data-aos="zoom-in"
                   data-aos-duration="1000"
                 />
               </figure>
